@@ -2,11 +2,26 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import Header from './Header';
 import reportWebVitals from './reportWebVitals';
+import Grid from '@material-ui/core/Grid';
+import Container from '@material-ui/core/Container';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Container maxWidth="md">
+      <Grid
+        container
+        spacing={1}
+      >
+        <Grid item xs={8}>
+          <Header />
+        </Grid>
+        <Grid item xs={4}>
+          <App />
+        </Grid>
+      </Grid>
+    </Container>
   </React.StrictMode>,
   document.getElementById('root')
 );
