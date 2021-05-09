@@ -5,27 +5,21 @@ import { QueryClient, QueryClientProvider, useQuery } from 'react-query'
 
 const queryClient = new QueryClient()
 
-function GetGithubUser() {
-    const { isLoading, error, data } = useQuery('repoData', () =>
-        fetch('https://api.github.com/users/alumarcu').then(res =>
-            res.json()
-        )
+class API {
+    static readonly GITHUB_ME = 'https://api.github.com/users/alumarcu'
+}
+
+function GithubUser() {
+    const result = useQuery('gh_user', () =>
+        fetch(API.GITHUB_ME).then(res => res.json())
     )
 
-    if (isLoading) return (
-        <div>Wait..</div>
-    )
-
-    if (error) return (
-        <div>An error has occurred!</div>
-    )
-
-    console.log(data)
+    if (result.isLoading || result.error) return null
 
     return (
         <div>
-            <Typography variant="h3">{data.name}</Typography>
-            <Typography variant="h5">{data.bio}</Typography>
+            <Typography variant="h3">{result.data.name}</Typography>
+            <Typography variant="h5">{result.data.bio}</Typography>
         </div>
     )
 }
@@ -35,7 +29,7 @@ class Header extends React.Component {
         return (
             <div>
                 <QueryClientProvider client={queryClient}>
-                    <GetGithubUser />
+                    <GithubUser />
                 </QueryClientProvider>
             </div>
         )

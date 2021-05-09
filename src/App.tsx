@@ -1,6 +1,8 @@
 //import React from 'react';
 //import logo from './logo.svg';
+//import { ReactComponent as LinkedIn } from './images/icons/linkedin.svg'
 import './App.css';
+
 
 function App() {
   // https://www.typescriptlang.org/docs/

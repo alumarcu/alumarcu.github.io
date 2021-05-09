@@ -6,6 +6,7 @@ import Header from './Header';
 import reportWebVitals from './reportWebVitals';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
+import Menu from './Menu';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -14,10 +15,11 @@ ReactDOM.render(
         container
         spacing={1}
       >
-        <Grid item xs={8}>
+        <Grid item sm={8} xs={12}>
           <Header />
+          <Menu />
         </Grid>
-        <Grid item xs={4}>
+        <Grid item sm={4} xs={12}>
           <App />
         </Grid>
       </Grid>
