@@ -1,11 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Layout from './Components/Layout'
-
-function Foo() {
-  return <div>Not much!</div>
-}
+import {Layout} from 'Components/Layout'
 
 ReactDOM.render(
   <React.StrictMode>
